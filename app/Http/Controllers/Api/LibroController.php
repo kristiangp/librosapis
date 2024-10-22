@@ -33,12 +33,18 @@ class LibroController extends Controller
      */
     public function show($id)
     {
-        $libro = Libro::find($id);
-        if (!$libro) {
-            return response()->json(['message' => 'Libro no encontrado'], 404);
-        }
-        return response()->json($libro, 200);
+    // Buscar el libro por ID
+    $libro = Libro::with('categoria')->find($id); // Cargar también la categoría
+
+    // Validar si el libro existe
+    if (!$libro) {
+        return response()->json(['message' => 'Libro no encontrado'], 404);
     }
+
+    // Devolver el libro junto con la categoría asociada
+    return response()->json($libro, 200);
+    }
+
 
     /**
      * Actualizar un libro existente.

@@ -22,4 +22,12 @@ class Libro extends Model
         "fecha_lanzamiento",
         "categoria_id"
     ];
+
+    public function categoria()
+    {
+    return $this->belongsTo(Categoria::class);
+    }
+
 }
+
+

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Categoria;
 use App\Models\Libro;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -29,7 +30,7 @@ class LibroFactory extends Factory
             'precio' => $this->faker->randomFloat(2, 10, 100),  // Precio entre 10 y 100
             'disponible' => $this->faker->boolean(),
             'fecha_lanzamiento' => $this->faker->date(),
-            'categoria_id' => $this->faker->numberBetween(1, 10)  // ID de categoría aleatorio
+            'categoria_id' => Categoria::factory()
         ];
     }
 }
