@@ -17,6 +17,7 @@ return new class extends Migration
         $table->text('descripcion'); // Descripción de la categoría
         $table->boolean('activo'); // Estado de la categoría (activa o no)
         $table->decimal('porcentaje_comision', 5, 2); // Ejemplo de un campo decimal
+        $table->string('slug')->unique(); // Slug único para la URL
         $table->timestamps(); // Marcas de tiempo (creado y actualizado)
     });
     }

@@ -11,7 +11,7 @@ class StoreCategoriaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class StoreCategoriaRequest extends FormRequest
         'nombre' => 'required|string',
         'descripcion' => 'required|string',
         'activo' => 'required|boolean',
-        'porcentaje_comision' => 'required|numeric',
+        'porcentaje_comision' => 'required|numeric'
     ];
     }
 

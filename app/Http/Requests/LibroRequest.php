@@ -24,7 +24,7 @@ class LibroRequest extends FormRequest
         return [
             'titulo' => ['required', 'string', 'max:255'],  // Obligatorio, texto, máximo 255 caracteres
             'autor' => ['required', 'string', 'max:255'],  // Obligatorio, texto, máximo 255 caracteres
-            'imagen' => ['required', 'url'],  // Obligatorio, formato de URL
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Obligatorio, formato de URL
             'genero' => ['required', 'string', 'max:50'],  // Obligatorio, texto, máximo 50 caracteres
             'descripcion' => ['required', 'string', 'max:1000'],  // Obligatorio, texto, máximo 1000 caracteres
             'anio_publicacion' => ['required', 'integer', 'min:1000', 'max:' . date('Y')],  // Año válido

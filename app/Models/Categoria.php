@@ -15,6 +15,7 @@ class Categoria extends Model
         'descripcion',
         'activo',
         'porcentaje_comision',
+        'slug'
     ];
 
     // Relación de 1 a N con libros
@@ -23,5 +24,5 @@ class Categoria extends Model
         return $this->hasMany(Libro::class);
     }
 
-    
+
 }

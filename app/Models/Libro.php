@@ -20,7 +20,8 @@ class Libro extends Model
         "precio",
         "disponible",
         "fecha_lanzamiento",
-        "categoria_id"
+        "categoria_id",
+        "slug"
     ];
 
     public function categoria()

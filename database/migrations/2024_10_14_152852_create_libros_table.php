@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('disponible')->default(true); // Tipo: booleano
             $table->date('fecha_lanzamiento'); // Tipo: fecha
             $table->unsignedBigInteger('categoria_id'); // Tipo: entero sin signo (relación)
+            $table->string('slug')->unique(); // Tipo: cadena de texto única
             $table->timestamps(); // created_at y updated_at
         });
     }

@@ -6,27 +6,15 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCategoriaRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
+    public function authorize()
     {
-        return false;
+        return true; // Ajusta según tu lógica de autorización
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules()
     {
-    return [
-        'nombre' => 'string',
-        'descripcion' => 'string',
-        'activo' => 'boolean',
-        'porcentaje_comision' => 'numeric',
-    ];
+        return [
+            'porcentaje_comision' => 'required|numeric|min:0|max:100',
+        ];
     }
-
 }

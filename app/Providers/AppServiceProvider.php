@@ -2,7 +2,12 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use App\Models\Libro;
+use App\Observers\LibroObserver;
+use App\Models\Categoria;
+use App\Observers\CategoriaObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Vite::prefetch(concurrency: 3);
+        Libro::observe(LibroObserver::class);
+        Categoria::observe(CategoriaObserver::class);
     }
 }

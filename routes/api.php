@@ -3,14 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoriaController;
-
-
+use App\Http\Controllers\Api\LibroController;
+use App\Http\Controllers\Api\CategoriaController;
 
 /*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------|
+| API Routes                                                               |
+|--------------------------------------------------------------------------|
 |
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
@@ -18,10 +17,13 @@ use App\Http\Controllers\CategoriaController;
 |
 */
 
-Route::apiResource('libros', \App\Http\Controllers\Api\LibroController::class)
-                    ->middleware('auth:sanctum');
+Route::apiResource('libros', LibroController::class)
+    ->middleware('auth:sanctum');
 
+Route::apiResource('categorias', CategoriaController::class)
+    ->middleware('auth:sanctum');
 
-Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
-Route::apiResource('categorias', CategoriaController::class);
+
+
